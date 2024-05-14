@@ -1,0 +1,16 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  jdownloader:
+    image: jlesage/jdownloader-2
+    container_name: jdownloader
+    environment:
+      - DARK_MODE = 1
+    volumes:
+      - ./config/:/config/
+      - /mnt/storage/shared/downloads/:/output/
+    networks:
+      - caddy
+    restart: unless-stopped

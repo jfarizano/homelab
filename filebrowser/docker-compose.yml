@@ -1,0 +1,15 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    volumes:
+      - ./config/:/config
+      - ./database/:/database/
+      - /mnt/storage:/srv/
+    networks:
+      - caddy
+    restart: unless-stopped

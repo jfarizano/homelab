@@ -1,0 +1,11 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  cyberchef:
+    image: ghcr.io/gchq/cyberchef:latest
+    container_name: cyberchef
+    networks:
+      - caddy
+    restart: unless-stopped

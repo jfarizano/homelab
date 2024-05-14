@@ -1,0 +1,47 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+#
+title: Fari's Homelab
+favicon: https://simpleicons.org/icons/frappe.svg
+
+theme: dark # <----- add this line
+color: slate # <----- add this line
+
+background:
+  image: /images/eev9l01j44ab1.jpg
+  blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 50 # 0-100
+
+useEqualHeights: true
+headerStyle: underlined
+hideVersion: true
+disableCollapse: true
+
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: true
+  showSearchSuggestions: true
+  hideVisitURL: true
+
+layout:
+  - Multimedia:
+  - Files/Downloads:
+  - Gaming:
+  - Work:
+  - Network:
+  - Virtualization:
+  - Athena:
+      icon: https://static.wikia.nocookie.net/hades_gamepedia_en/images/8/81/Athena_symbol.png
+      style: row
+      columns: 4
+  - Artemis:
+      icon: https://static.wikia.nocookie.net/hades_gamepedia_en/images/7/7b/Artemis_symbol.png
+      style: row
+      columns: 5
+  - Dionysus:
+      icon: https://static.wikia.nocookie.net/hades_gamepedia_en/images/8/81/Dionysus_symbol.png
+      style: row
+      columns: 4

@@ -1,0 +1,11 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  it-tools:
+    image: corentinth/it-tools:latest
+    container_name: it-tools
+    networks:
+      - caddy
+    restart: unless-stopped

@@ -1,0 +1,115 @@
+{
+    admin :2019 
+}
+
+home.fari.ar {
+
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
+
+    reverse_proxy homepage:3000
+}
+
+*.home.fari.ar { 
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
+
+    # -------------------------
+    # Multimedia
+    # -------------------------
+
+    @jellyfin host jellyfin.home.fari.ar
+    handle @jellyfin {
+        reverse_proxy jellyfin:8096
+    }
+
+    # -------------------------
+    # Files/Downloads
+    # -------------------------
+
+    @filebrowser host filebrowser.home.fari.ar
+    handle @filebrowser {
+        reverse_proxy filebrowser:80
+    }
+
+    @sync host sync.home.fari.ar
+    handle @sync {
+        reverse_proxy syncthing:8384 {
+            header_up Host {upstream_hostport}
+        }
+    }
+
+    @torrent host torrent.home.fari.ar
+    handle @torrent {
+        reverse_proxy qbittorrent:8080
+    }
+
+    @jdownloader host jdownloader.home.fari.ar
+    handle @jdownloader {
+        reverse_proxy jdownloader:5800
+    }
+
+    # -------------------------
+    # Work
+    # -------------------------
+
+    @git host git.home.fari.ar
+    handle @git {
+        reverse_proxy gitea:3000
+    }
+
+    @stirling host stirling.home.fari.ar
+    handle @stirling {
+        reverse_proxy stirling:8080
+    }
+
+    @cyberchef host cyberchef.home.fari.ar
+    handle @cyberchef {
+        reverse_proxy cyberchef:80
+    }
+
+    @it-tools host it-tools.home.fari.ar
+    handle @it-tools {
+        reverse_proxy it-tools:80
+    }
+
+    # -------------------------
+    # Virtualization
+    # -------------------------
+
+    @proxmox host proxmox.home.fari.ar
+    handle @proxmox {
+        reverse_proxy athena.home.fari.ar:8006 {
+            transport http {
+                tls_insecure_skip_verify
+            }
+        }
+    }
+
+    @portainer host portainer.home.fari.ar
+    handle @portainer {
+        reverse_proxy portainer:9000
+    }
+
+    # -------------------------
+    # Network
+    # -------------------------
+
+    @dns host dns.home.fari.ar
+    handle @dns {
+        reverse_proxy dns-server:5380
+    }
+
+    @speedtest host speedtest.home.fari.ar
+    handle @speedtest {
+        reverse_proxy speedtest-tracker:80
+    }
+
+    handle {
+        abort
+    }
+}

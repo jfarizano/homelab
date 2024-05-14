@@ -1,0 +1,14 @@
+services:
+  # https://hub.docker.com/r/itsthenetwork/nfs-server-alpine
+  nfs:
+    image: itsthenetwork/nfs-server-alpine:12
+    container_name: nfs
+    restart: unless-stopped
+    environment:
+      - SHARED_DIRECTORY=/shared
+      - PERMITTED="192.168.195.*"
+    volumes:
+      - /mnt/storage/shared/:/shared
+    ports:
+      - 2049:2049
+    privileged: true
