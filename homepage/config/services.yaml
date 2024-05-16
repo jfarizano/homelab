@@ -12,7 +12,7 @@
         server: docker-proxy-local
         widget:
             type: jellyfin
-            url: https://jellyfin.home.fari.ar
+            url: http://jellyfin:8096
             key: {{HOMEPAGE_VAR_JELLYFIN_API_KEY}}
             enableBlocks: true # optional, defaults to false
             enableNowPlaying: true # optional, defaults to true
@@ -35,7 +35,7 @@
         server: docker-proxy-local
         widget:
             type: customapi
-            url: https://sync.home.fari.ar/rest/svc/report
+            url: http://syncthing:8384/rest/svc/report
             headers:
                 X-API-Key: {{HOMEPAGE_VAR_SYNCTHING_API_KEY}}
             mappings:
@@ -59,7 +59,7 @@
         server: docker-proxy-local
         widget:
             type: qbittorrent
-            url: https://torrent.home.fari.ar
+            url: http://qbittorrent:8080
             username: admin
             password: {{HOMEPAGE_VAR_QBITTORENT_PASSWORD}}
     - Jdownloader:
@@ -83,7 +83,7 @@
         server: docker-proxy-local
         widget:
             type: pterodactyl
-            url: https://pterodactyl.home.fari.ar
+            url: http://pterodactyl:1232
             key: {{HOMEPAGE_VAR_PTERODACTYL_API_KEY}}
 
 - Work:
@@ -95,7 +95,7 @@
         server: docker-proxy-local
         widget:
             type: gitea
-            url: https://git.home.fari.ar
+            url: http://gitea:3000
             key: {{HOMEPAGE_VAR_GITEA_API_KEY}}
     - Stirling:
         icon: https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/docs/stirling.png
@@ -131,7 +131,7 @@
         server: docker-proxy-local
         widget:
             type: customapi
-            url: https://dns.home.fari.ar/api/dashboard/stats/get?token={{HOMEPAGE_VAR_TECHNITIUM_TOKEN}}&type=LastDay
+            url: http://dns-server:5380/api/dashboard/stats/get?token={{HOMEPAGE_VAR_TECHNITIUM_TOKEN}}&type=LastDay
             refreshInterval: 10 
             method: GET 
             mappings:
@@ -163,7 +163,7 @@
         server: docker-proxy-local
         widget:
             type: speedtest
-            url: https://speedtest.home.fari.ar
+            url: http://speedtest-tracker:80
 
 - Virtualization:
     - Proxmox:
@@ -172,7 +172,7 @@
         href: https://proxmox.home.fari.ar
         widget:
             type: proxmox
-            url: https://proxmox.home.fari.ar
+            url: https://{{HOMEPAGE_VAR_ATHENA_IP}}:8006
             username: api@pam!homepage
             password: {{HOMEPAGE_VAR_PROXMOX_API_KEY}}
             node: athena # optional
@@ -184,89 +184,89 @@
         server: docker-proxy-local
         widget:
             type: portainer
-            url: https://portainer.home.fari.ar
+            url: http://portainer:9000
             env: 1
             key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
 - Athena:
     - Info:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: info
     - CPU:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: cpu
     - CPU Temp:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: sensor:Composite
     - Memory:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: memory
     - SSD:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: disk:nvme0n1
     - ZFS:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: disk:zd0
     - Network:
         widget:
             type: glances
-            url: http://athena.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
             metric: network:vmbr0
 - Artemis:
     - Info:
         widget:
             type: glances
-            url: http://artemis.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ARTEMIS_IP}}:61208
             metric: info
     - CPU:
         widget:
             type: glances
-            url: http://artemis.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ARTEMIS_IP}}:61208
             metric: cpu
     - Memory:
         widget:
             type: glances
-            url: http://artemis.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ARTEMIS_IP}}:61208
             metric: memory
     - Root:
         widget:
             type: glances
-            url: http://artemis.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ARTEMIS_IP}}:61208
             metric: fs:/
     - Storage:
         widget:
             type: glances
-            url: http://artemis.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_ARTEMIS_IP}}:61208
             metric: fs:/mnt/storage
 - Dionysus:
     - Info:
         widget:
             type: glances
-            url: http://dionysus.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_DIONYSUS_IP}}:61208
             metric: info
     - CPU:
         widget:
             type: glances
-            url: http://dionysus.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_DIONYSUS_IP}}:61208
             metric: cpu
     - Memory:
         widget:
             type: glances
-            url: http://dionysus.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_DIONYSUS_IP}}:61208
             metric: memory
     - Root:
         widget:
             type: glances
-            url: http://dionysus.home.fari.ar:61208
+            url: http://{{HOMEPAGE_VAR_DIONYSUS_IP}}:61208
             metric: fs:/

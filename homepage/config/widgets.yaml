@@ -9,21 +9,21 @@
     showSearchSuggestions: true
 
 - glances:
-    url: http://athena.home.fari.ar:61208
+    url: http://{{HOMEPAGE_VAR_ATHENA_IP}}:61208
     cpu: false
     mem: false
     uptime: true
     label: Athena
 
 - glances:
-    url: http://artemis.home.fari.ar:61208
+    url: http://{{HOMEPAGE_VAR_ARTEMIS_IP}}:61208
     cpu: false
     mem: false
     uptime: true
     label: Artemis
 
 - glances:
-    url: http://dionysus.home.fari.ar:61208
+    url: http://{{HOMEPAGE_VAR_DIONYSUS_IP}}:61208
     cpu: false
     mem: false
     uptime: true
