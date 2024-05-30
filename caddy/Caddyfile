@@ -83,7 +83,7 @@ home.fari.ar {
 
     @proxmox host proxmox.home.fari.ar
     handle @proxmox {
-        reverse_proxy athena.home.fari.ar:8006 {
+        reverse_proxy {env.ATHENA_IP}:8006 {
             transport http {
                 tls_insecure_skip_verify
             }
