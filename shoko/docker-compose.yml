@@ -1,0 +1,18 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  shoko_server:
+    image: shokoanime/server:latest
+    container_name: shokoserver
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+    networks:
+      - caddy
+    volumes:
+      - ./shoko_data/:/home/shoko/.shoko/
+      - /mnt/storage/shared/downloads/multimedia/anime/:/mnt/anime
+    restart: always

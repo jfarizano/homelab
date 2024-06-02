@@ -27,6 +27,11 @@ home.fari.ar {
         reverse_proxy jellyfin:8096
     }
 
+    @shoko host shoko.home.fari.ar
+    handle @shoko {
+        reverse_proxy shokoserver:8111
+    }
+
     # -------------------------
     # File Sharing
     # -------------------------

@@ -19,6 +19,12 @@
             enableUser: true # optional, defaults to false
             showEpisodeNumber: true # optional, defaults to false
             expandOneStreamToTwoRows: false # optional, defaults to true
+    - Shoko:
+        icon: shoko.png
+        description: Anime cataloging
+        href: https://shoko.home.fari.ar
+        container: shokoserver
+        server: docker-proxy-local
 
 - File sharing:
     - Filebrowser:
