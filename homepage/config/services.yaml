@@ -20,7 +20,7 @@
             showEpisodeNumber: true # optional, defaults to false
             expandOneStreamToTwoRows: false # optional, defaults to true
 
-- Files/Downloads:
+- File sharing:
     - Filebrowser:
         icon: filebrowser.png
         description: Web based file browser
@@ -51,6 +51,18 @@
                 - field: numDevices
                   label: Devices
                   format: number
+    - Immich:
+        icon: immich.png
+        description: Photo and video management
+        href: https://photos.home.fari.ar
+        container: immich_server
+        server: docker-proxy-local
+        widget:
+            type: immich
+            url: http://immich_server:3001
+            key: {{HOMEPAGE_VAR_IMMICH_API_KEY}}
+
+- Downloads:
     - qBittorrent:
         icon: qbittorrent.png
         description: Torrent client

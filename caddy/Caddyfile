@@ -28,20 +28,28 @@ home.fari.ar {
     }
 
     # -------------------------
-    # Files/Downloads
+    # File Sharing
     # -------------------------
 
     @filebrowser host filebrowser.home.fari.ar
     handle @filebrowser {
         reverse_proxy filebrowser:80
     }
-
     @sync host sync.home.fari.ar
     handle @sync {
         reverse_proxy syncthing:8384 {
             header_up Host {upstream_hostport}
         }
     }
+
+    @photos host photos.home.fari.ar
+    handle @photos {
+        reverse_proxy immich_server:3001
+    }
+
+    # -------------------------
+    # Downloads
+    # -------------------------
 
     @torrent host torrent.home.fari.ar
     handle @torrent {

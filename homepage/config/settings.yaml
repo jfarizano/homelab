@@ -28,7 +28,8 @@ quicklaunch:
 
 layout:
   - Multimedia:
-  - Files/Downloads:
+  - File sharing:
+  - Downloads:
   - Gaming:
   - Work:
   - Network:
