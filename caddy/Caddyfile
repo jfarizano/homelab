@@ -36,10 +36,11 @@ home.fari.ar {
     # File Sharing
     # -------------------------
 
-    @filebrowser host filebrowser.home.fari.ar
+    @filebrowser host files.home.fari.ar
     handle @filebrowser {
         reverse_proxy filebrowser:80
     }
+
     @sync host sync.home.fari.ar
     handle @sync {
         reverse_proxy syncthing:8384 {
