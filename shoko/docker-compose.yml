@@ -10,6 +10,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Argentina/Buenos_Aires
+    ports:
+      - 8111:8111
     networks:
       - caddy
     volumes:
