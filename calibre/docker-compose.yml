@@ -1,0 +1,44 @@
+networks:
+  caddy:
+    external: true
+
+secrets:
+  calibre_password:
+    file: "./secrets/calibre_password"
+
+services:
+  calibre:
+    image: ghcr.io/linuxserver/calibre
+    container_name: calibre
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+      - CUSTOM_USER=fari
+      - FILE__CUSTOM_PASSWORD=/run/secrets/calibre_password
+    volumes:
+      - ./config_calibre/:/config/
+      - ./plugins/:/plugins/
+      - ./uploads/:/uploads/
+      - /mnt/storage/shared/calibre_library/:/books/
+      # Necesario para evitar problemas que tiene calibre con fileystems compartidos
+      # si no se me rompe el cliente desktop accediendo por nfs
+      - ./metadata.db:/books/metadata.db
+    networks:
+      - caddy
+    restart: unless-stopped
+
+  calibre-web:
+    image: ghcr.io/linuxserver/calibre-web
+    container_name: calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+    volumes:
+      - ./config_calibre_web/:/config/
+      - /mnt/storage/shared/calibre_library/:/books/
+      - ./metadata.db:/books/metadata.db
+    networks:
+      - caddy
+    restart: unless-stopped

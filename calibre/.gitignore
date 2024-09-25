@@ -1,0 +1,7 @@
+/secrets/
+/config_calibre/
+/config_calibre_web/
+/config_readarr/
+/plugins/
+/uploads/
+/metadata.db
