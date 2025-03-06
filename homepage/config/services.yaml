@@ -113,17 +113,11 @@
             url: https://lidarr.home.fari.ar
             key: {{HOMEPAGE_VAR_LIDARR_API_KEY}}
 
-# - Gaming:
-#     - Pterodactyl:
-#         icon: pterodactyl.png
-#         description: Game server manager
-#         href: https://pterodactyl.home.fari.ar
-#         container: pterodactyl
-#         server: docker-proxy-local
-#         widget:
-#             type: pterodactyl
-#             url: http://pterodactyl:1232
-#             key: {{HOMEPAGE_VAR_PTERODACTYL_API_KEY}}
+- Gaming:
+    - Pterodactyl:
+        icon: pterodactyl.png
+        description: Game server manager
+        href: https://games.fari.ar
 
 - Work:
     - Gitea:
