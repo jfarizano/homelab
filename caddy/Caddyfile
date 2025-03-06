@@ -42,6 +42,11 @@ home.fari.ar {
         reverse_proxy calibre-web:8083
     }
 
+    @lidarr host lidarr.home.fari.ar
+    handle @lidarr {
+        reverse_proxy lidarr:8686
+    }
+
     # -------------------------
     # File Sharing
     # -------------------------

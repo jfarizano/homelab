@@ -1,0 +1,21 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+    volumes:
+      - ./config/:/config/
+      - ./custom-services.d/:/custom-services.d/
+      - .//custom-cont-init.d/:/custom-cont-init.d/
+      - /mnt/storage/shared/downloads/multimedia/music/:/music/
+      - /mnt/storage/shared/downloads/torrents_in_progress/:/downloads/
+    networks:
+      - caddy
+    restart: unless-stopped

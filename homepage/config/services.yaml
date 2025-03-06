@@ -102,6 +102,16 @@
             username: fari@fari.ar
             password: {{HOMEPAGE_VAR_JDOWNLOADER_PASSWORD}}
             client: JDownloader@Docker
+    - Lidarr:
+        icon: lidarr.png
+        description: Music library manager
+        href: https://lidarr.home.fari.ar
+        container: lidarr
+        server: docker-proxy-local
+        widget:
+            type: lidarr
+            url: https://lidarr.home.fari.ar
+            key: {{HOMEPAGE_VAR_LIDARR_API_KEY}}
 
 # - Gaming:
 #     - Pterodactyl:
