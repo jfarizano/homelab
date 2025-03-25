@@ -163,6 +163,8 @@
     - Caddy:
         icon: caddy.png
         description: Reverse Proxy
+        container: caddy
+        server: docker-proxy-local
         widget:
             type: caddy
             url: http://caddy:2019
@@ -173,31 +175,11 @@
         container: dns-server
         server: docker-proxy-local
         widget:
-            type: customapi
-            url: http://dns-server:5380/api/dashboard/stats/get?token={{HOMEPAGE_VAR_TECHNITIUM_TOKEN}}&type=LastDay
-            refreshInterval: 10 
-            method: GET 
-            mappings:
-                - field:
-                    response:
-                        stats: totalQueries
-                  label: Total
-                  format: number
-                - field:
-                    response:
-                        stats: totalAuthoritative
-                  label: Authoritative
-                  format: number
-                - field:
-                    response:
-                        stats: totalRecursive
-                  label: Recursive
-                  format: number
-                - field:
-                    response:
-                        stats: totalBlocked
-                  label: Blocked
-                  format: number
+            type: technitium
+            url: http://dns-server:5380
+            key: {{HOMEPAGE_VAR_TECHNITIUM_TOKEN}}
+            fields: ["totalQueries", "totalAuthoritative", "totalRecursive", "totalBlocked"]
+            range: LastMonth
     - Speedtest Tracker:
         icon: speedtest-tracker.png
         description: Internet performance tracking
