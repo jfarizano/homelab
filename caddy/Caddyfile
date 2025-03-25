@@ -42,9 +42,9 @@ home.fari.ar {
         reverse_proxy calibre-web:8083
     }
 
-    @lidarr host lidarr.home.fari.ar
-    handle @lidarr {
-        reverse_proxy lidarr:8686
+    @soulseek host soulseek.home.fari.ar
+    handle @soulseek {
+        reverse_proxy slskd:5030
     }
 
     # -------------------------
@@ -80,6 +80,11 @@ home.fari.ar {
     @jdownloader host jdownloader.home.fari.ar
     handle @jdownloader {
         reverse_proxy jdownloader:5800
+    }
+
+    @lidarr host lidarr.home.fari.ar
+    handle @lidarr {
+        reverse_proxy lidarr:8686
     }
 
     # -------------------------

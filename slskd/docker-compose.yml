@@ -1,0 +1,19 @@
+networks:
+  caddy:
+    external: true
+
+services:
+  slskd:
+    image: slskd/slskd:latest
+    container_name: slskd
+    user: 1000:1000
+    environment:
+      - SLSKD_REMOTE_CONFIGURATION=true
+    networks:
+      - caddy
+    ports:
+      - 50300:50300/tcp
+    volumes:
+      - ./data/:/app/
+      - /mnt/storage/shared/downloads/:/downloads/
+    restart: unless-stopped

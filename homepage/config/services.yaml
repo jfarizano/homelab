@@ -78,6 +78,16 @@
             type: immich
             url: http://immich_server:3001
             key: {{HOMEPAGE_VAR_IMMICH_API_KEY}}
+    - Soulseek:
+        icon: slskd.png
+        description: Peer-to-peer file-sharing
+        href: https://soulseek.home.fari.ar
+        container: slskd
+        server: docker-proxy-local
+        widget:
+            type: slskd
+            url: https://soulseek.home.fari.ar
+            key: {{HOMEPAGE_VAR_SLSKD_API_KEY}}
 
 - Downloads:
     - qBittorrent:
