@@ -76,8 +76,9 @@
         server: docker-proxy-local
         widget:
             type: immich
-            url: http://immich_server:3001
+            url: http://immich_server:2283
             key: {{HOMEPAGE_VAR_IMMICH_API_KEY}}
+            version: 2
     - Soulseek:
         icon: slskd.png
         description: Peer-to-peer file-sharing

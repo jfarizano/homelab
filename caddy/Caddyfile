@@ -65,7 +65,7 @@ home.fari.ar {
 
     @photos host photos.home.fari.ar
     handle @photos {
-        reverse_proxy immich_server:3001
+        reverse_proxy immich_server:2283
     }
 
     # -------------------------
