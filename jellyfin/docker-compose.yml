@@ -17,7 +17,7 @@ services:
       - caddy
     volumes:
       - ./config/:/config/
-      - /mnt/storage/jellyfin_cache/:/cache/
+      - ./cache/:/cache/
       - type: bind
         source: /mnt/storage/shared/downloads/multimedia/
         target: /media
